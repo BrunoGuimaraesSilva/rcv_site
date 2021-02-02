@@ -6,7 +6,7 @@ import Geradores from '../pages/Geradores'
 import Pecas from '../pages/Pecas'
 import Sobre from '../pages/Sobre'
 import Home from '../pages/Home'
-import Contato from '../pages/Contato'
+import Contato from '../pages/Contato/Contato'
 
 const Routes = () => (
     <>
