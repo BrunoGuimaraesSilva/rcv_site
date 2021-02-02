@@ -6,14 +6,13 @@ import {
   Button,
   Toolbar,
   IconButton,
-  Typography,
   Drawer,
   Link,
   MenuItem,
 } from "@material-ui/core";
 import logo_rcv from "../../logos/logo.png";
 import MenuIcon from "@material-ui/icons/Menu";
-import { Link as RouterLink, Route } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,12 +33,6 @@ const useStyles = makeStyles((theme) => ({
       paddingLeft: 0,
     },
   },
-  logo: {
-    fontFamily: "Work Sans, sans-serif",
-    fontWeight: 600,
-    color: "#FFFEFE",
-    textAlign: "left",
-  },
   menuButton: {
     fontFamily: "Open Sans, sans-serif",
     fontWeight: 700,
@@ -58,11 +51,9 @@ const useStyles = makeStyles((theme) => ({
 export default function Header(props) {
   const {
     header,
-    logo,
     menuButton,
     toolbar,
     drawerContainer,
-    classes,
   } = useStyles();
   const { headersData } = props;
   const [state, setState] = useState({

@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 
 import Corretora from '../pages/Corretora'
 import Geradores from '../pages/Geradores'

@@ -4,9 +4,6 @@ import TextField from "@material-ui/core/TextField";
 import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
-import InputLabel from "@material-ui/core/InputLabel";
-import FormHelperText from "@material-ui/core/FormHelperText";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import asyncValidate from "./asyncValidate";
@@ -52,40 +49,8 @@ const radioButton = ({ input, ...rest }) => (
   </FormControl>
 );
 
-const renderFromHelper = ({ touched, error }) => {
-  if (!(touched && error)) {
-    return;
-  } else {
-    return <FormHelperText>{touched && error}</FormHelperText>;
-  }
-};
-
-const renderSelectField = ({
-  input,
-  label,
-  meta: { touched, error },
-  children,
-  ...custom
-}) => (
-  <FormControl error={touched && error}>
-    <InputLabel htmlFor="age-native-simple">Idade</InputLabel>
-    <Select
-      native
-      {...input}
-      {...custom}
-      inputProps={{
-        name: "age",
-        id: "age-native-simple",
-      }}
-    >
-      {children}
-    </Select>
-    {renderFromHelper({ touched, error })}
-  </FormControl>
-);
-
 const ContatoForm = (props) => {
-  const { handleSubmit, pristine, reset, submitting, classes } = props;
+  const { handleSubmit, pristine, reset, submitting } = props;
   return (
     <form onSubmit={handleSubmit}>
       <div>
