@@ -11,28 +11,9 @@ import {
     Link,
     MenuItem
 } from '@material-ui/core'
-import logo_rcv from './logos/logo.png'
+import logo_rcv from '../../logos/logo.png'
 import MenuIcon from '@material-ui/icons/Menu';
 import { Link as RouterLink, Route } from "react-router-dom";
-
-const headersData = [
-    {
-        label: "Geradores",
-        href: "/listings",
-    },
-    {
-        label: "Peças",
-        href: "/mentors",
-    },
-    {
-        label: "Corretora",
-        href: "/account",
-    },
-    {
-        label: "Sobre",
-        href: "/logout",
-    },
-];
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -48,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     header: {
         backgroundColor: "#326c9a",
         paddingRight: "79px",
-        paddingLeft: "118px",
+        paddingLeft: "35px",
         "@media (max-width: 900px)": {
             paddingLeft: 0,
         },
@@ -76,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Header(props) {
     const { header, logo, menuButton, toolbar, drawerContainer, classes } = useStyles();
-
+    const { headersData } = props;
     const [state, setState] = useState({
         mobileView: false,
         drawerOpen: false,
@@ -137,8 +118,10 @@ export default function Header(props) {
                         "aria-label": "menu",
                         "aria-haspopup": "true",
                         onClick: handleDrawerOpen,
+                        width: '100%',
                     }}
-                >
+                >                       
+
                     <MenuIcon />
                 </IconButton>
 
@@ -152,16 +135,14 @@ export default function Header(props) {
                     <div className={drawerContainer}>{getDrawerChoices()}</div>
                 </Drawer>
 
-                <div>{RCV_logo}</div>
+                <div style={{ marginLeft:'3em',width:"100%"}}>{RCV_logo}</div>
             </Toolbar>
         );
     };
 
-    
-
     const RCV_logo = (
-        <div style={{height:'80px', marginTop:'15px'}}>
-            <img style={{ alignContent:"center"}} src={logo_rcv} height={'80%'} width={'auto'}/>
+        <div style={{height:'80px', marginTop:'5px', marginBottom:'5px', textAlign:'center'}}>
+            <img style={{ alignContent:"center"}} src={logo_rcv} height={'100%'} width={'auto'}/>
         </div>
     );
 
@@ -190,18 +171,10 @@ export default function Header(props) {
                     {mobileView ? displayMobile() : displayDesktop()}
                 </AppBar>
             </header>
-            {/*<div className={classes.root}>*/}
-            {/*    <AppBar style={{ background: '#326c9a', height:'10%'}}>*/}
-
-            {/*        <Toolbar variant="dense">*/}
-            {/*            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">*/}
-            {/*                <MenuIcon />*/}
-            {/*            </IconButton>*/}
-
-            {/*                <img style={{ alignContent:"center"}} src={logo} height={'80%'} width={'auto'}/>*/}
-            {/*        </Toolbar>*/}
-            {/*    </AppBar>*/}
-            {/*</div>*/}
         </React.Fragment>
     );
 }
+
+Header.propTypes = {
+    headersData: PropTypes.array,
+  };
